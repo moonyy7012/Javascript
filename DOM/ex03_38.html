@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<script>
+    function choice(){
+        var size = document.getElementsByName("check").length;//name="check"인 요소의 개수
+        var text = "내가 좋아하는 과일은 ";
+        for(var i=0; i<size; i++){
+            if(document.getElementsByName("check")[i].checked==true){   //orange, apple, banana 순으로 check되어있는지 확인
+                text+=(document.getElementsByName("check")[i].value);
+                text+="&nbsp;&nbsp;";
+            }
+        }
+        text+="입니다";
+        document.getElementById("demo").innerHTML = text;
+    }
+</script>
+<body>
+    좋아하는 과일을 선택하시오
+    <input type="button" onclick="choice()" value="선택"><br>
+    <input type="checkbox" name="check" value="orange">orange<br>
+    <input type="checkbox" name="check" value="apple">apple<br>
+    <input type="checkbox" name="check" value="banana">banana<br>
+
+    <div id="demo"></div>
+</body>
+</html>
