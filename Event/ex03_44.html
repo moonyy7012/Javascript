@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div id="box">
+        <button onclick="addEventHandler()" id="startbtn">시작</button>   <!--버튼 클릭하면 mousemove이벤트 등록됨-->
+        <button onclick="removeHandler()" id="stopbtn">정지</button>   <!--버튼 클릭하면 mousemove이벤트리스너 삭제됨-->
+    </div>
+    <p id="demo"></p>
+
+    <script>
+        function myFunction(){  //시작버튼 누르고 마우스 움직이면 마우스 위치 실시간으로 출력
+            document.getElementById("demo").innerHTML = " X좌표:"+event.x+"&nbsp;&nbsp;&nbsp;Y좌표:"+event.y;
+        }
+        function addEventHandler(){
+            document.getElementById("box").addEventListener("mousemove", myFunction);  //mousemove는 마우스이벤트 중 하나(마우스가 해당 요소(box)위에서 움직일 때 myfunction실행)
+        }
+        function removeHandler(){
+            document.getElementById("box").removeEventListener("mousemove", myFunction);  //해당 요소(box)위에서 움직일 때의 이벤트리스너 삭제(myfunction 실행X)
+        }
+    </script>
+</body>
+</html>
